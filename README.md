@@ -1,11 +1,13 @@
-# api documentation for  [csurf (v1.9.0)](https://github.com/expressjs/csurf)  [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-csurf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-csurf)
+# api documentation for  [csurf (v1.9.0)](https://github.com/expressjs/csurf)  [![npm package](https://img.shields.io/npm/v/npmdoc-csurf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-csurf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-csurf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-csurf)
 #### CSRF token middleware
 
 [![NPM](https://nodei.co/npm/csurf.png?downloads=true)](https://www.npmjs.com/package/csurf)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-csurf/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-csurf_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-csurf/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-csurf/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-csurf_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-csurf/build/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-csurf/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-csurf/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-csurf/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
