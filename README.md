@@ -1,9 +1,14 @@
-# api documentation for  [csurf (v1.9.0)](https://github.com/expressjs/csurf)  [![npm package](https://img.shields.io/npm/v/npmdoc-csurf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-csurf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-csurf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-csurf)
+# npmdoc-csurf
+
+#### api documentation for  [csurf (v1.9.0)](https://github.com/expressjs/csurf)  [![npm package](https://img.shields.io/npm/v/npmdoc-csurf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-csurf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-csurf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-csurf)
+
 #### CSRF token middleware
 
-[![NPM](https://nodei.co/npm/csurf.png?downloads=true)](https://www.npmjs.com/package/csurf)
+[![NPM](https://nodei.co/npm/csurf.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/csurf)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-csurf/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-csurf_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-csurf/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-csurf/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-csurf/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-csurf/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-csurf/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-csurf/build/screenCapture.npmPackageListing.svg)
 
@@ -18,7 +23,6 @@
 {
     "author": {
         "name": "Jonathan Ong",
-        "email": "me@jongleberry.com",
         "url": "http://jongleberry.com"
     },
     "bugs": {
@@ -26,8 +30,7 @@
     },
     "contributors": [
         {
-            "name": "Douglas Christopher Wilson",
-            "email": "doug@somethingdoug.com"
+            "name": "Douglas Christopher Wilson"
         }
     ],
     "dependencies": {
@@ -74,33 +77,26 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "defunctzombie",
-            "email": "shtylman@gmail.com"
+            "name": "defunctzombie"
         },
         {
-            "name": "dougwilson",
-            "email": "doug@somethingdoug.com"
+            "name": "dougwilson"
         },
         {
-            "name": "fishrock123",
-            "email": "fishrock123@rocketmail.com"
+            "name": "fishrock123"
         },
         {
-            "name": "jongleberry",
-            "email": "jonathanrichardong@gmail.com"
+            "name": "jongleberry"
         },
         {
-            "name": "mscdex",
-            "email": "mscdex@mscdex.net"
+            "name": "mscdex"
         },
         {
-            "name": "tjholowaychuk",
-            "email": "tj@vision-media.ca"
+            "name": "tjholowaychuk"
         }
     ],
     "name": "csurf",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/expressjs/csurf.git"
@@ -111,19 +107,10 @@
         "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot test/",
         "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec test/"
     },
-    "version": "1.9.0"
+    "version": "1.9.0",
+    "bin": {}
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module csurf](#apidoc.module.csurf)
-
-
-
-# <a name="apidoc.module.csurf"></a>[module csurf](#apidoc.module.csurf)
 
 
 
