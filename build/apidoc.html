@@ -61,12 +61,112 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.csurf">module csurf</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.csurf.csurf">
+            function <span class="apidocSignatureSpan"></span>csurf
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.csurf" id="apidoc.module.csurf">module csurf</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.csurf.csurf" id="apidoc.element.csurf.csurf">
+        function <span class="apidocSignatureSpan"></span>csurf
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function csurf(options) {
+  var opts = options || {}
+
+  // get cookie options
+  var cookie = getCookieOptions(opts.cookie)
+
+  // get session options
+  var sessionKey = opts.sessionKey || &#x27;session&#x27;
+
+  // get value getter
+  var value = opts.value || defaultValue
+
+  // token repo
+  var tokens = new Tokens(opts)
+
+  // ignored methods
+  var ignoreMethods = opts.ignoreMethods === undefined
+    ? [&#x27;GET&#x27;, &#x27;HEAD&#x27;, &#x27;OPTIONS&#x27;]
+    : opts.ignoreMethods
+
+  if (!Array.isArray(ignoreMethods)) {
+    throw new TypeError(&#x27;option ignoreMethods must be an array&#x27;)
+  }
+
+  // generate lookup
+  var ignoreMethod = getIgnoredMethods(ignoreMethods)
+
+  return function csrf (req, res, next) {
+    // validate the configuration against request
+    if (!verifyConfiguration(req, sessionKey, cookie)) {
+      return next(new Error(&#x27;misconfigured csrf&#x27;))
+    }
+
+    // get the secret from the request
+    var secret = getSecret(req, sessionKey, cookie)
+    var token
+
+    // lazy-load token getter
+    req.csrfToken = function csrfToken () {
+      var sec = !cookie
+        ? getSecret(req, sessionKey, cookie)
+        : secret
+
+      // use cached token if secret has not changed
+      if (token &#x26;&#x26; sec === secret) {
+        return token
+      }
+
+      // generate &#x26; set new secret
+      if (sec === undefined) {
+        sec = tokens.secretSync()
+        setSecret(req, res, sessionKey, sec, cookie)
+      }
+
+      // update changed secret
+      secret = sec
+
+      // create new token
+      token = tokens.create(secret)
+
+      return token
+    }
+
+    // generate &#x26; set secret
+    if (!secret) {
+      secret = tokens.secretSync()
+      setSecret(req, res, sessionKey, secret, cookie)
+    }
+
+    // verify the incoming token
+    if (!ignoreMethod[req.method] &#x26;&#x26; !tokens.verify(secret, value(req))) {
+      return next(createError(403, &#x27;invalid csrf token&#x27;, {
+        code: &#x27;EBADCSRFTOKEN&#x27;
+      }))
+    }
+
+    next()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

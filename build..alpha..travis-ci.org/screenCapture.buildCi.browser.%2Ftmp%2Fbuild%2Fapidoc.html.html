@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/expressjs/csurf"
-
-    >csurf (v1.9.0)</a>
+    <a href="https://github.com/expressjs/csurf">csurf (v1.9.0)</a>
 </h1>
 <h4>CSRF token middleware</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.csurf">module csurf</a><ol>
 
@@ -92,7 +85,7 @@
   var cookie = getCookieOptions(opts.cookie)
 
   // get session options
-  var sessionKey = opts.sessionKey || &#x27;session&#x27;
+  var sessionKey = opts.sessionKey || 'session'
 
   // get value getter
   var value = opts.value || defaultValue
@@ -102,11 +95,11 @@
 
   // ignored methods
   var ignoreMethods = opts.ignoreMethods === undefined
-    ? [&#x27;GET&#x27;, &#x27;HEAD&#x27;, &#x27;OPTIONS&#x27;]
+    ? ['GET', 'HEAD', 'OPTIONS']
     : opts.ignoreMethods
 
   if (!Array.isArray(ignoreMethods)) {
-    throw new TypeError(&#x27;option ignoreMethods must be an array&#x27;)
+    throw new TypeError('option ignoreMethods must be an array')
   }
 
   // generate lookup
@@ -115,7 +108,7 @@
   return function csrf (req, res, next) {
     // validate the configuration against request
     if (!verifyConfiguration(req, sessionKey, cookie)) {
-      return next(new Error(&#x27;misconfigured csrf&#x27;))
+      return next(new Error('misconfigured csrf'))
     }
 
     // get the secret from the request
@@ -129,11 +122,11 @@
         : secret
 
       // use cached token if secret has not changed
-      if (token &#x26;&#x26; sec === secret) {
+      if (token &amp;&amp; sec === secret) {
         return token
       }
 
-      // generate &#x26; set new secret
+      // generate &amp; set new secret
       if (sec === undefined) {
         sec = tokens.secretSync()
         setSecret(req, res, sessionKey, sec, cookie)
@@ -148,16 +141,16 @@
       return token
     }
 
-    // generate &#x26; set secret
+    // generate &amp; set secret
     if (!secret) {
       secret = tokens.secretSync()
       setSecret(req, res, sessionKey, secret, cookie)
     }
 
     // verify the incoming token
-    if (!ignoreMethod[req.method] &#x26;&#x26; !tokens.verify(secret, value(req))) {
-      return next(createError(403, &#x27;invalid csrf token&#x27;, {
-        code: &#x27;EBADCSRFTOKEN&#x27;
+    if (!ignoreMethod[req.method] &amp;&amp; !tokens.verify(secret, value(req))) {
+      return next(createError(403, 'invalid csrf token', {
+        code: 'EBADCSRFTOKEN'
       }))
     }
 
@@ -176,3 +169,4 @@
     ]
 </div>
 </div>
+</body></html>
